@@ -2,7 +2,6 @@ package com.luxoft.trainings.jmh.practice;
 
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Measurement;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
@@ -33,10 +32,10 @@ public class StringConcat {
 
     @Setup
     public void setup() {
-        //System.out.println("fill str array");
         for (int i = 0; i < STR_ARRAY_SIZE; ++i) {
             strArr[i] = STR;
         }
+        //System.out.println("fill str array: " + Stream.of(strArr).collect(Collectors.joining()));
     }
 
     @Benchmark
